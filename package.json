@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "sripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --pretty --respawn src/index.ts"
+    "dev": "ts-node-dev --pretty --respawn src/app.ts"
   },
   "keywords": [],
   "author": "",
