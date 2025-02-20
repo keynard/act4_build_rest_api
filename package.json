@@ -1,8 +1,7 @@
-
 {
   "name": "typescript-nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "hello",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-   "@types/nanoid": "^3.0.0",
-   "type/uuid": "^9.0.2",
-   "bcryptjs": "^2.4.3",
-   "cors": "^2.8.5",
-   "dotenv": "^16.3.0",
-   "express": "^4.18.2",
+    "@types/nanoid": "^3.0.0",
+   
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.0",
+    "express": "^4.18.2",
     "helmet": "^7.0.0",
     "http-status-codes": "^2.2.0",
     "nanoid": "^4.0.2",
@@ -31,5 +30,13 @@
     "@types/helmet": "^4.0.0",
     "@types/http-status-codes": "^1.2.0",
     "ts-node-dev": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keynard/act4_build_rest_api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keynard/act4_build_rest_api/issues"
+  },
+  "homepage": "https://github.com/keynard/act4_build_rest_api#readme"
 }
