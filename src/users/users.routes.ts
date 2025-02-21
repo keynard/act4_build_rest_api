@@ -18,7 +18,7 @@ userRouter.get("/users", async (req : Request, res : Response) => {
      }
 })
 
-userRouter.get("/users/:id", async (req : Request, res : Response) => {
+userRouter.get("/user/:id", async (req : Request, res : Response) => {
     try {
         const user : UnitUser = await database.findOne(req.params.id)
         
@@ -72,25 +72,27 @@ userRouter.post("/login", async (req : Request, res : Response) => {
     }
 })
 
-userRouter.put('/user/:id', async (req : Request, res : Response) => {
+userRouter.put('/user/:id', async (req: Request, res: Response) => {
     try {
-        const {username, email, password} = req.body
+        const { username, email, password } = req.body
+
+        if (!username || !email || !password) {
+            return res.status(StatusCodes.BAD_REQUEST).json({ error: `Please provide all the required parameters.` })
+        }
 
         const getUser = await database.findOne(req.params.id)
 
-        if (!username || !email || !password){
-            return res.status(401).json({error: `Please provide all required parameters...`})
+        if (!getUser) {
+            return res.status(StatusCodes.NOT_FOUND).json({ error: `No user with id ${req.params.id}` })
         }
-        if (!getUser){
-            return res.status(404).json({error: `No user with id ${req.params.id}`})
-        }
-        const updatedUser = await database.update(req.params.id, req.body)
-        return res.status(201).json({updatedUser})
-    } catch (error){
+
+        const updateUser = await database.update(req.params.id, req.body)
+
+        return res.status(StatusCodes.OK).json({ updateUser })
+    } catch (error) {
         console.log(error)
-        return res.status(500).json({error})
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error })
     }
-    
 })
 
 userRouter.delete("/user/:id", async (req : Request, res : Response) => {
